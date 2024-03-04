@@ -1,0 +1,13 @@
+#root {
+    width: 94.9%;
+    margin: 0 auto;
+    margin-left: 0;
+    padding: 2rem;
+    text-align: center;
+    background: white;
+    color: black;
+}
+
+#copyright {
+    display: inline-block;
+}

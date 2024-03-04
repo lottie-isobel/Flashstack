@@ -1,0 +1,9 @@
+export { default as SignUpPage } from "./SignUpPage";
+export { default as LoginPage } from "./LoginPage";
+export { default as Dashboard } from "./Dashboard";
+export { default as AllFlashcardsPage } from "./AllFlashCardsPage";
+export { default as AllNotesPage } from "./AllNotesPage";
+export { default as CreateFlashcardPage } from "./CreateFlashcardPage";
+export { default as CreateNotePage } from "./CreateNotePage";
+export { default as RevisionPage } from "./RevisionPage";
+export { default as NotFoundPage } from "./NotFoundPage";
