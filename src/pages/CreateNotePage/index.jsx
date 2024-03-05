@@ -1,5 +1,5 @@
 import React from 'react'
-import { StylingControls, Card } from '../../components'
+import { StylingControls, Card, CardControls } from '../../components'
 
 export default function CreateNotePage() {
   return (
@@ -7,6 +7,7 @@ export default function CreateNotePage() {
       <div>Create a Note</div>
       <StylingControls />
       <Card />
+      <CardControls />
     </>
   )
 }
