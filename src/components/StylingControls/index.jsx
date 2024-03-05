@@ -39,10 +39,7 @@ export default function StylingControls() {
   };
 
   const toggleSuperscript = () => {
-    console.log("button:" + isSuper)
-    console.log("triggered")
     const selection = window.getSelection();
-    console.log("if statement not covered yet")
     if (!selection.isCollapsed) {
       const range = selection.getRangeAt(0);
  
@@ -77,7 +74,6 @@ export default function StylingControls() {
       }
     }
     setIsSuper(!isSuper);
-    console.log("applied:" + isSuper);
   };
   
   const removeSuperscript = () => {
@@ -103,14 +99,10 @@ export default function StylingControls() {
       }
     }
     setIsSuper(!isSuper);
-    console.log("removed:" + isSuper);
   };
 
   const toggleSubscript = () => {
-    console.log("button:" + isSub)
-    console.log("triggered")
     const selection = window.getSelection();
-    console.log("if statement not covered yet")
     if (!selection.isCollapsed) {
       const range = selection.getRangeAt(0);
   
@@ -134,7 +126,6 @@ export default function StylingControls() {
     selection.removeAllRanges();
 
     setIsSub(!isSub);
-    console.log("applied:" + isSub);
   };
 
   const removeSubscript = () => {
@@ -154,7 +145,6 @@ export default function StylingControls() {
     }
   }
   setIsSub(!isSub);
-  console.log("removed:" + isSub);
   };
 
   return (
