@@ -6,6 +6,7 @@ export default function Footer() {
   return (
     <>
       <footer>
+        <div className="line-break"></div>
         <nav>
           <p id="copyright">© Flashstack 2024</p>
           <NavLink to="/about-us" className="footer-link about">
