@@ -1,0 +1,56 @@
+.signup-page {
+  margin-top: 75px;
+}
+
+h1 {
+  font-size: 55px;
+  margin-bottom: 15px;
+  text-align: left;
+  margin: 20px;
+  font-weight: 300;
+}
+
+.signup {
+  margin-top: 30px;
+  margin-left: 20px;
+  width: 30%;
+}
+
+.signup input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.signup .name,
+.signup .email,
+.signup .userdetails {
+  display: flex;
+  gap: 10px;
+}
+
+.signup .name input,
+.signup .email input {
+  width: calc(100% - 5px);
+}
+
+.signup input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  background-color: #4691bb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.signup input[type="submit"]:hover {
+  background-color: #2e628c;
+}
+
+.button-wrap {
+  width: 33%;
+}

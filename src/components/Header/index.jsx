@@ -1,16 +1,40 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import logo from "../../assets/flashstack-logo.png";
+import "./index.css";
 
 export default function Header() {
   return (
     <>
-        <header>
-            <nav>
-                <NavLink to="/flashcards">Flashcards</NavLink>
-                <NavLink to="/notes">Shows</NavLink>
-                <NavLink to="/logout">Sign Out</NavLink>
-            </nav>
-        </header>
+      <header className="nav-bar">
+              <img
+                src={logo}
+                alt=""
+                width="180"
+                height="50"
+                className="d-inline-block align-top logo"
+              />
+
+        {/* <img src={logo} className="logo" /> */}
+        <nav>
+          <button className="custom-button">
+            <NavLink to="/flashcards" className="nav-link">
+              Flashcards
+            </NavLink>
+          </button>
+          <button className="custom-button">
+            <NavLink to="/notes" className="nav-link">
+              Shows
+            </NavLink>
+          </button>
+          <button className="custom-button">
+            <NavLink to="/logout" className="nav-link">
+              Sign Out
+            </NavLink>
+          </button>
+        </nav>
+      </header>
+      <div className="line-break"></div>
     </>
-  )
+  );
 }
