@@ -11,3 +11,85 @@
 #copyright {
     display: inline-block;
 }
+
+/* Styling for card */
+.card{
+    font-family: 'Indie Flower', cursive;
+    background-color: white;
+    background: repeating-linear-gradient(white, white 25px, #9198e5 26px, #9198e5 27px);
+    background-position-y: 34px;
+    height: 300px;
+    width: 500px;
+    padding: 0;
+    margin-top: 50px;
+    margin-right: 15px;
+    color: black;
+    }
+    
+    .card header {
+    background: linear-gradient(white, white 33px, pink 35px, pink 36px);
+    height: 36px;
+    text-decoration: su;
+    }
+    
+    .card-title {
+    position: relative;
+    left: 10px;
+    top: -1.5px;
+    font-size: 30px;
+    font-weight: bold;
+    }
+    
+    .card-text {
+    position: relative;
+    top: 30px;
+    font-size: 18px;
+    margin: 0 20px;
+    line-height: 27px;
+    padding: 0;
+    
+    }
+    
+    /* Styling for text styles */
+    
+    .btn {
+      padding: 3px 5px 3px 5px;
+      margin-left: 10px;
+      background: white;
+      color: black;
+    }
+    
+    #italicBtn {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    
+    #superBtn {
+      padding-top: 0;
+      padding-bottom: 3px;
+    }
+    
+    #subBtn {
+      padding-top: 3px;
+      padding-bottom: 0;
+    }
+    
+    .dropdown {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    .dropdown select {
+      appearance: none;
+      padding: 3px 5px 3px 5px;
+      font-size: 14px;
+      text-align: center;
+      border-radius: 7px;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+    
+    .dropdown select option {
+      padding: 3px 5px 3px 5px;
+    }
