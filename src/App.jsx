@@ -1,13 +1,15 @@
-import "./App.css";
-import { Routes, Route, Outlet } from "react-router-dom";
-import * as Pages from "./pages";
-import { Header, Footer } from "./components";
+import './App.css'
+import { Routes, Route, Outlet } from 'react-router-dom';
+import * as Pages from './pages'
+import { Header, Footer } from './components'
+import { EditorProvider } from './contexts';
 
 function App() {
   return (
     <>
-      <Header />
-      <div className="content">
+      <EditorProvider>
+        <Header />
+        <div className='content'>
         <Routes>
           <Route path="/signup" element={<Pages.SignUpPage />} />
           <Route path="/login" element={<Pages.LoginPage />} />
@@ -19,8 +21,9 @@ function App() {
           <Route path="/revise" element={<Pages.RevisionPage />} />
           <Route path="*" element={<Pages.NotFoundPage />} />
         </Routes>
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </EditorProvider>
     </>
   );
 }
