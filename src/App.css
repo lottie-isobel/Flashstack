@@ -1,11 +1,15 @@
+:root {
+  --primary-color: #4691bb;
+}
+
 #root {
-    width: 94.9%;
-    margin: 0 auto;
-    margin-left: 0;
-    padding: 2rem;
-    text-align: center;
-    background: white;
-    color: black;
+  width: 94.9%;
+  margin: 0 auto;
+  margin-left: 0;
+  padding: 2rem;
+  text-align: center;
+  background: white;
+  color: black;
 }
 
 #copyright {
@@ -93,3 +97,23 @@
     .dropdown select option {
       padding: 3px 5px 3px 5px;
     }
+
+  display: inline-block;
+}
+
+.nav-bar {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+}
+
+.btn-nav {
+  background-color: var(--primary-color);
+  color: white;
+}
