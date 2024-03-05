@@ -1,0 +1,33 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+p {
+  color: #575757;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: -3px;
+}
+
+.footer-link {
+  color: #575757;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.line-break {
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 2px;
+}
