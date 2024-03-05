@@ -1,5 +1,8 @@
-.signup-page {
-  margin-top: 75px;
+.login-page {
+  margin: 0;
+  margin-left: 30px;
+  padding-top: 83px;
+  padding-bottom: 83px;
 }
 
 h1 {
