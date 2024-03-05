@@ -24,7 +24,7 @@ export default function LoginPage() {
         <div class="button-wrap">
           <input className="login-button" type="submit" value="Login" />
         </div>
-        <p>
+        <p className="no-account">
           Don't have an account? <Link to="/signup">Sign up</Link>
         </p>
       </form>
