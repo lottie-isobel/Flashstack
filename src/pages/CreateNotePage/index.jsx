@@ -1,13 +1,11 @@
 import React from 'react'
-import { StylingControls, Card, CardControls } from '../../components'
+import { Card } from '../../components'
 
 export default function CreateNotePage() {
   return (
     <>
       <div>Create a Note</div>
-      <StylingControls />
       <Card />
-      <CardControls />
     </>
   )
 }
