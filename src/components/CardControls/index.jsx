@@ -9,7 +9,7 @@ export default function CardControls() {
 
   return (
     <div className="cardControls" style={{ display: 'inline-block' }}>
-      <AddEquationBtn insertEquation={insertEquation} />
+      <AddEquationBtn onInsertEquation={insertEquation} />
       <SaveCardBtn />
       <DeleteCardBtn />
     </div>
