@@ -1,5 +1,5 @@
 import React from 'react'
-import { StylingControls, Card } from '../../components'
+import { Card } from '../../components'
 
 export default function CreateFlashcardPage() {
   return (

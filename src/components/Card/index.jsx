@@ -153,12 +153,12 @@ export default function Card() {
             </button>
             </div>
             <div className="card">
-            <ReactLatex><Editable
+            <Editable
                 editor={editor}
                 renderLeaf={renderLeaf}
                 placeholder='Type here'
                 style={{ top: '2px', lineHeight: '1.445', }}
-                /></ReactLatex>
+                />
             </div>
         </Slate>
     )
