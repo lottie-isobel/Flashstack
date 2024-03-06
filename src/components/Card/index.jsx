@@ -1,4 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { useEditor } from '../../contexts';
+import { Slate, Editable, withReact } from 'slate-react';
+import { createEditor } from 'slate';
 
 export default function Card() {
 
@@ -6,14 +9,15 @@ export default function Card() {
     const [text, setText] = useState('');
     const [initialTitle, setInitialTitle] = useState('');
     const [initialText, setInitialText] = useState('');
-    const titleRef = useRef(null);
-    const textRef = useRef(null);
+    const { titleRef, textRef } = useEditor()
   
     /* To prevent the input text from changing when applying styling or modifying the content */
     useEffect(() => {
       setInitialTitle(titleRef.current.innerText);
       setInitialText(textRef.current.innerText);
     }, []);
+
+    console.log(textRef.current?.innerHTML)
   
     /* To handle changes in the inputs */
     const handleTitleChange = () => {
