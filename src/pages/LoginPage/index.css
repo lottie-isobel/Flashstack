@@ -1,13 +1,19 @@
-.signup-page {
-  margin-top: 75px;
+.login-page {
+  margin: 0;
+  margin-left: 30px;
+  padding-top: 83px;
+  padding-bottom: 83px;
+  font-family: "Mulish", sans-serif;
 }
 
 h1 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 800;
   font-size: 55px;
+  font-weight: bold;
   margin-bottom: 15px;
   text-align: left;
   margin: 20px;
-  font-weight: 300;
 }
 
 .signup {
@@ -37,8 +43,10 @@ h1 {
 }
 
 .signup input[type="submit"] {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
   width: 100%;
-  height: 50px;
+  height: 40px;
   background-color: #4691bb;
   color: white;
   border: none;
@@ -53,4 +61,11 @@ h1 {
 
 .button-wrap {
   width: 33%;
+}
+
+.signup .no-account {
+  padding-top: 0px;
+  margin-top: 0px;
+  text-align: left;
+  font-weight: 500;
 }
