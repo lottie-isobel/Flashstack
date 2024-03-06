@@ -1,7 +1,7 @@
 export { default as SignUpPage } from "./SignUpPage";
 export { default as LoginPage } from "./LoginPage";
 export { default as Dashboard } from "./Dashboard";
-export { default as AllFlashcardsPage } from "./AllFlashCardsPage";
+export { default as AllFlashcardsPage } from "./AllDecksPage";
 export { default as AllNotesPage } from "./AllNotesPage";
 export { default as CreateFlashcardPage } from "./CreateFlashcardPage";
 export { default as CreateNotePage } from "./CreateNotePage";
