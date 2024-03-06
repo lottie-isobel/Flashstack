@@ -8,10 +8,6 @@ export default function Header() {
   const navigate = useNavigate()
   const { token, logout } = useAuth()
 
-  const switchPage = (page) => {
-    navigate(page)
-  }
-
   const handleLogout = async (e) => {
     e.preventDefault()
     try {
@@ -35,7 +31,7 @@ export default function Header() {
   return (
     <>
       <header className="nav-bar">
-              <img
+              <img onClick={() => navigate("/")}
                 src={logo}
                 alt=""
                 width="180"
@@ -43,16 +39,16 @@ export default function Header() {
                 className="d-inline-block align-top logo"
               />
         <nav>
-          {token && <button className="custom-button" onClick={() => switchPage("/flashcards")}>
+          {token && <button className="custom-button" onClick={() => navigate("/flashcards")}>
             Flashcards
           </button>}
-          {token && <button className="custom-button" onClick={() => switchPage("/notes")}>
+          {token && <button className="custom-button" onClick={() => navigate("/notes")}>
             Notes
           </button>}
           {token && <button className="custom-button" onClick={handleLogout}>
             Sign Out
           </button>}
-          {!token && <button className="custom-button" onClick={() => switchPage("/login")}>
+          {!token && <button className="custom-button" onClick={() => navigate("/login")}>
             Sign In
           </button>}
         </nav>

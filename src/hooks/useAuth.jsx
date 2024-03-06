@@ -5,21 +5,29 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("token", null);
+  const [userid, setUserId] = useLocalStorage("userid", null);
+  const [firstName, setFirstName] = useLocalStorage("firstName", null);
   const navigate = useNavigate();
 
   const login = async (data) => {
-    setToken(data);
+    setToken(data.token);
+    setUserId(data.userid);
+    setFirstName(data.firstName)
     navigate("/dashboard");
   };
 
   const logout = () => {
     setToken(null);
+    setFirstName(null)
+    setUserId(null)
     navigate("/", { replace: true });
   };
 
   const value = useMemo(
     () => ({
       token,
+      userid,
+      firstName,
       login,
       logout,
     }),

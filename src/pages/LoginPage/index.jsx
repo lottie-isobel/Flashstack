@@ -26,24 +26,38 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const options = {
+      const tokenResponse = await fetch("https://flashstack-backend.onrender.com/user/login", {
         method: "POST",
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
-      }
-      const response = await fetch("https://flashstack-backend.onrender.com/user/login", options)
-      if (!response.ok) {
+      })
+      if (!tokenResponse.ok) {
         setErrorMessage("Incorrect username or password.")
         setTimeout(() => {
           setErrorMessage("")
         }, 5000)
         return
       }
-      const data = await response.json()
-      await login(data.token)
+      const tokenData = await tokenResponse.json()
+      const userInfoResponse = await fetch(`https://flashstack-backend.onrender.com/user/${tokenData.token}`, {
+        method: "GET",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      const userInfoData = await userInfoResponse.json()
+      console.log(userInfoData)
+      const userInfo = {
+        token: tokenData.token,
+        userid: userInfoData.id,
+        firstName: userInfoData.first_name
+      }
+      console.log(userInfo)
+      await login(userInfo)
       navigate("/")
     } catch (error) {
       console.error("Error:", error)
