@@ -50,13 +50,11 @@ export default function LoginPage() {
         }
       })
       const userInfoData = await userInfoResponse.json()
-      console.log(userInfoData)
       const userInfo = {
         token: tokenData.token,
         userid: userInfoData.id,
         firstName: userInfoData.first_name
       }
-      console.log(userInfo)
       await login(userInfo)
       navigate("/")
     } catch (error) {
