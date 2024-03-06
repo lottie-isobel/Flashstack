@@ -14,8 +14,6 @@ export default function Header() {
                 height="50"
                 className="d-inline-block align-top logo"
               />
-
-        {/* <img src={logo} className="logo" /> */}
         <nav>
           <button className="custom-button">
             <NavLink to="/flashcards" className="nav-link">
@@ -24,7 +22,7 @@ export default function Header() {
           </button>
           <button className="custom-button">
             <NavLink to="/notes" className="nav-link">
-              Shows
+              Notes
             </NavLink>
           </button>
           <button className="custom-button">
