@@ -39,7 +39,7 @@ export default function LoginPage() {
         setErrorMessage("Incorrect username or password.")
         setTimeout(() => {
           setErrorMessage("")
-        }, 2000)
+        }, 5000)
         return
       }
       const data = await response.json()
@@ -73,9 +73,9 @@ export default function LoginPage() {
         <div className="button-wrap">
           <input className="login-button" type="submit" value="Login" />
         </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
       </form>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }
