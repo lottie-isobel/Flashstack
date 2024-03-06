@@ -1,3 +1,35 @@
+p{
+    font-family: 'Mulish';
+}
 .dashboard-quick {
-    
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.streak-box{
+    background-color: #4691bb;
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 10px 60px;
+}
+
+.recent-decks{
+    color: black;
+    font-weight: bold;
+    padding-top: 5px;
+    font-size: 24px;
+}
+
+.view-flashstacks{
+    margin: 35px 50px;
+    background-color: #4691bb;
+}
+
+.keep-your-streak-going{
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
 }

@@ -18,9 +18,7 @@ export default function Header() {
         },
         body: JSON.stringify({ token: token })
       }
-      console.log(options)
       const response = await fetch("https://flashstack-backend.onrender.com/user/logout", options)
-      console.log(response)
       await logout()
     }
     catch(error){
