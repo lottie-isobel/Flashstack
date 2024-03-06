@@ -1,6 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { createEditor, Editor } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
+import ReactLatex from 'react-latex';
+import { useEditor } from '../../contexts';
 
 export default function Card() {
     const [editor] = useState(() => withReact(createEditor()))
@@ -151,12 +153,12 @@ export default function Card() {
             </button>
             </div>
             <div className="card">
-                <Editable
+            <ReactLatex><Editable
                 editor={editor}
                 renderLeaf={renderLeaf}
                 placeholder='Type here'
                 style={{ top: '2px', lineHeight: '1.445', }}
-                />
+                /></ReactLatex>
             </div>
         </Slate>
     )

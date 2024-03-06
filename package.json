@@ -14,10 +14,10 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
+    "react-latex": "^2.0.0",
     "react-router-dom": "^6.22.2",
     "slate": "^0.102.0",
-    "slate-react": "^0.102.0",
-    "react-latex": "^2.0.0"
+    "slate-react": "^0.102.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

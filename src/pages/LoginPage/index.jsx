@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import "./index.css";
 
 export default function LoginPage() {
 
   const navigate = useNavigate()
+  const { login } = useAuth()
 
   const [formData, setFormData] = useState({
     email: '',
@@ -37,12 +39,12 @@ export default function LoginPage() {
         setErrorMessage("Incorrect username or password.")
         setTimeout(() => {
           setErrorMessage("")
-        }, 2000)
+        }, 5000)
         return
       }
       const data = await response.json()
-      window.localStorage.addItem("token", data.token)
-      navigate("/dashboard")
+      await login(data.token)
+      navigate("/")
     } catch (error) {
       console.error("Error:", error)
     }
@@ -71,9 +73,9 @@ export default function LoginPage() {
         <div className="button-wrap">
           <input className="login-button" type="submit" value="Login" />
         </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
       </form>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }

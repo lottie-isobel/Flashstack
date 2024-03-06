@@ -1,6 +1,7 @@
-import React, { useRef, useContext, createContext } from "react";
-//Good template for createContext
+import React, { useRef, useState, useContext, createContext } from "react";
+
 const EditorContext = createContext();
+
 export const EditorProvider = ({ children }) => {
     const titleRef = useRef(null);
     const textRef = useRef(null);  
@@ -10,4 +11,5 @@ export const EditorProvider = ({ children }) => {
     </EditorContext.Provider>
   );
 };
+
 export const useEditor = () => useContext(EditorContext);
