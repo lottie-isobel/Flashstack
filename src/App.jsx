@@ -1,14 +1,13 @@
 import './App.css'
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import * as Pages from './pages'
 import { Header, Footer } from './components'
-import { EditorProvider, AuthProvider } from './contexts';
+import { EditorProvider } from './contexts';
 
 function App() {
   return (
     <>
-      <EditorProvider>
-        <AuthProvider>
+        <EditorProvider>
           <Header />
           <div className='content'>
             <Routes>
@@ -24,8 +23,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </AuthProvider>
-      </EditorProvider>
+        </EditorProvider>
     </>
   );
 }
