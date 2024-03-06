@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import ReactLatex from 'react-latex';
-import { useEditor } from '../../contexts';
 
-export default function AddEquationBtn() {
+export default function AddEquationBtn({ onInsertEquation }) {
   const [showPopup, setShowPopup] = useState(false);
   const [equation, setEquation] = useState('');
-  const { textRef } = useEditor();
 
   const handleClick = () => {
     setShowPopup(true);
@@ -21,8 +19,8 @@ export default function AddEquationBtn() {
   };
 
   const handleSubmit = () => {
-    // Apply the LaTeX equation to the textRef content
-    textRef.current.innerHTML += ` ${equation} `;
+    // Use the callback function passed from Card to insert the equation
+    onInsertEquation && onInsertEquation(equation);
     handlePopupClose();
   };
 
