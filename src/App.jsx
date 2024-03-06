@@ -16,6 +16,8 @@ function App() {
             <Routes>
               <Route path="/signup" element={<Pages.SignUpPage />} />
               <Route path="/login" element={<Pages.LoginPage />} />
+              <Route path="/about" element={<Pages.AboutUsPage/>} />
+              <Route path="/contact" element={<Pages.ContactUsPage/>} />
               <Route path="/" element={<ProtectedRoute><Pages.Dashboard /></ProtectedRoute>} />
               <Route path="/flashcards" element={<ProtectedRoute><Pages.AllFlashcardsPage /></ProtectedRoute>} />
               <Route path="/notes" element={<ProtectedRoute><Pages.AllNotesPage /></ProtectedRoute>} />

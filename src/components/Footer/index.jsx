@@ -9,10 +9,10 @@ export default function Footer() {
         <div className="line-break"></div>
         <nav>
           <p id="copyright">© Flashstack 2024</p>
-          <NavLink to="/about-us" className="footer-link about">
+          <NavLink to="/about" className="footer-link about">
             About Us
           </NavLink>
-          <NavLink to="/about-us" className="footer-link contact">
+          <NavLink to="/contact" className="footer-link contact">
             Contact Us
           </NavLink>
         </nav>

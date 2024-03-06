@@ -7,3 +7,5 @@ export { default as CreateFlashcardPage } from "./CreateFlashcardPage";
 export { default as CreateNotePage } from "./CreateNotePage";
 export { default as RevisionPage } from "./RevisionPage";
 export { default as NotFoundPage } from "./NotFoundPage";
+export { default as AboutUsPage } from "./AboutUsPage"
+export { default as ContactUsPage } from "./ContactUsPage"
