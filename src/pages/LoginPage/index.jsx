@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import "./index.css";
 
 export default function LoginPage() {
 
   const navigate = useNavigate()
+  const { login } = useAuth()
 
   const [formData, setFormData] = useState({
     email: '',
@@ -41,8 +43,8 @@ export default function LoginPage() {
         return
       }
       const data = await response.json()
-      window.localStorage.addItem("token", data.token)
-      navigate("/dashboard")
+      await login(data.token)
+      navigate("/")
     } catch (error) {
       console.error("Error:", error)
     }
