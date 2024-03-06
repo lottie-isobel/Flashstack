@@ -33,7 +33,7 @@ export default function LoginPage() {
         body: JSON.stringify(formData)
       }
       const response = await fetch("https://flashstack-backend.onrender.com/user/login", options)
-      if(!response.ok){
+      if (!response.ok) {
         setErrorMessage("Incorrect username or password.")
         setTimeout(() => {
           setErrorMessage("")
@@ -71,14 +71,8 @@ export default function LoginPage() {
         <div className="button-wrap">
           <input className="login-button" type="submit" value="Login" />
         </div>
-
-        <p className="no-account">
-
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <p>
-
-          Don't have an account? <Link to="/signup">Sign up</Link>
-        </p>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
       </form>
     </div>
   );
