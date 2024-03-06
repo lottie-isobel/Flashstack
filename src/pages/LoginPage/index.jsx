@@ -71,8 +71,12 @@ export default function LoginPage() {
         <div className="button-wrap">
           <input className="login-button" type="submit" value="Login" />
         </div>
+
+        <p className="no-account">
+
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <p>
+
           Don't have an account? <Link to="/signup">Sign up</Link>
         </p>
       </form>
