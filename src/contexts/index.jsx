@@ -10,4 +10,5 @@ export const EditorProvider = ({ children }) => {
     </EditorContext.Provider>
   );
 };
+
 export const useEditor = () => useContext(EditorContext);
