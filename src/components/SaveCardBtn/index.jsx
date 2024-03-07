@@ -4,36 +4,58 @@ export default function SaveCardBtn() {
 
     const handleSave = async () => {
 
-        const textHTML = textRef.current.innerHTML;
+        const tokenStr = localStorage.getItem('token')
 
-        console.log(textHTML)
+        console.log(tokenStr)
 
-    const newData = {
-        title: titleRef.current.innerHTML,
-        text: textRef.current.innerHTML,
-        "styling": {
-            "top": "30px",
-          }
+        const token = tokenStr.replace(/^"(.*)"$/, '$1')
+
+        console.log(token)
+
+        const options = {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        }
+
+        const response = await fetch(`https://flashstack-backend.onrender.com/user/${token}`, options);
+        const data = await response.json();
+
+        if (response.status == 200) {
+            alert(`The user id is ${data.id}.`)
+        } else {
+            alert(data.error);
+        }
+
+
+    const newNote = {
+        userid: data.id,
+        content: localStorage.getItem('content'),
+        category: 'test'
     };
 
-    const options = {
+    console.log(newNote)
+
+    const noteOptions = {
         method: "POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newData)
+        body: JSON.stringify(newNote)
     }
 
-    const response = await fetch(`http://backend/${cardType}`, options);
-    const data = await response.json();
+    const noteResponse = await fetch('https://flashstack-backend.onrender.com/note', noteOptions);
+    const noteData = await noteResponse.json();
 
-    if (response.status == 201) {
+    if (noteResponse.status == 201) {
         e.target.reset();
-        alert(`You're ${cardType} has been saved to ${category}!`)
-        console.log('Data saved successfully:', data);
+        alert(`You're note has been saved to ${noteData.category}!`)
+        console.log('Data saved successfully:', noteData);
     } else {
-        alert(data.error);
+        alert(noteData.error);
     }
     };
 
