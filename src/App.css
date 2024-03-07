@@ -21,8 +21,8 @@ button {
 
 /* Styling for card */
 .card {
-    height: 296.5px;
-    width: 550px;
+    height: 500px;
+    width: 950px;
     margin: 10px auto;
     background-image: repeating-linear-gradient(
         180deg,

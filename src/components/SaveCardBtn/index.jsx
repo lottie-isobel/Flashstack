@@ -1,9 +1,11 @@
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
+import { useParams } from 'react-router-dom'
 
-export default function SaveCardBtn({ type, id }) {
+export default function SaveCardBtn({ type }) {
 
     const { userid } = useAuth()
+    const { id } = useParams()
 
     const handleSave = async () => {
         switch (type) {
@@ -32,10 +34,32 @@ export default function SaveCardBtn({ type, id }) {
                 }
                 return
 
-            case "frontFlashcard", "backFlashcard":
+            case "flashcard":
+                const newCard = {
+                    question: localStorage.getItem('contentFront'),
+                    answer: localStorage.getItem('contentBack')
+                }
+
+                const cardOptions = {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newCard)
+                }
+
+                const cardResponse = await fetch(`https://flashstack-backend.onrender.com/card/deck/${id}`, cardOptions);
+                const cardData = await cardResponse.json();
+                if (cardResponse.status == 201) {
+                    alert(`Your card has been created.`)
+                    console.log('Data saved successfully:', cardData);
+                } else {
+                    alert(cardData.error);
+                }
                 return
             default:
-                alert("Card type not recognised")
+                alert("Post type not recognised")
                 return
         }
     };
