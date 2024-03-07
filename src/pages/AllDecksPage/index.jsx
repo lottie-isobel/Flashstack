@@ -6,6 +6,7 @@ import "./index.css";
 const AllDecksPage = () => {
   const { userid } = useAuth();
   const [decks, setDecks] = useState([]);
+  const [newDeckName, setNewDeckName] = useState("")
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,9 +32,38 @@ const AllDecksPage = () => {
     fetchDecks();
   }, []);
 
+  const addDeck = async (e) => {
+    try {
+      e.preventDefault()
+      const response = await fetch("https://flashstack-backend.onrender.com/deck", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userid: userid,
+          name: newDeckName
+        })
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error("Error posting deck.")
+    }
+  }
+
+  const handleNewDeckNameChange = async (e) => {
+    setNewDeckName(e.target.value)
+  }
+
   return (
     <div>
       <div className="allDecks">
+        <form onSubmit={addDeck}>
+          <input value={newDeckName} onChange={handleNewDeckNameChange} />
+          <button type="submit">+ Add deck</button>
+        </form>
         {"" ||
           decks.map(deck => (
             <div className="deck" key={deck.deckid}>
