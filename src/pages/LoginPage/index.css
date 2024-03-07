@@ -1,5 +1,5 @@
 .login-page {
-  margin: 0;
+  margin: 0 auto;
   margin-left: 30px;
   padding-top: 83px;
   padding-bottom: 83px;
@@ -12,13 +12,13 @@ h1 {
   font-size: 55px;
   font-weight: bold;
   margin-bottom: 15px;
-  text-align: left;
+  text-align: center;
   margin: 20px;
 }
 
 .signup {
-  margin-top: 30px;
-  margin-left: 20px;
+  display: block;
+  margin: 0 auto;
   width: 30%;
 }
 
@@ -32,7 +32,8 @@ h1 {
 
 .signup .name,
 .signup .email,
-.signup .userdetails {
+.signup .userdetails,
+.signup .password {
   display: flex;
   gap: 10px;
 }
@@ -61,6 +62,7 @@ h1 {
 
 .button-wrap {
   width: 33%;
+  margin: 0 auto;
 }
 
 .signup .no-account {

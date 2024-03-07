@@ -12,11 +12,11 @@
 }
 
 button {
-    padding: 3px 5px 3px 5px;
-    margin-left: 10px;
-    margin-top: 10px;;
-    background: white;
-    color: white; 
+  padding: 3px 5px 3px 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background: white;
+  color: white;
 }
 
 /* Styling for card */
@@ -37,83 +37,87 @@ button {
 /* Styling for text styles */
 
 .controls button {
-    padding: 3px 5px 3px 5px;
-    margin-left: auto;
-    margin-right: 5px;
-    background: white;
-    color: black;
-  }
+  padding: 3px 5px 3px 5px;
+  margin-left: auto;
+  margin-right: 5px;
+  background: white;
+  color: black;
+}
 
 .dropdown {
-    display: inline-block;
-    position: relative;
-    /* margin-right: 10px; */
+  display: inline-block;
+  position: relative;
+  /* margin-right: 10px; */
 }
 
 .dropdownPopup {
-    position: absolute;
-    top: 38.5px;
-    left: 10px;
-    background-color: white;
-    z-index: 1;
+  position: absolute;
+  top: 38.5px;
+  left: 10px;
+  background-color: white;
+  z-index: 1;
 }
 
 #sPopup {
-    min-width: 134px;
+  min-width: 134px;
 }
 
 #cPopup {
-    min-width: 152px;
+  min-width: 152px;
 }
 
 #hlPopup {
-    min-width: 133px;
+  min-width: 133px;
 }
 
 .dropdownPopup button {
-    display: block;
-    margin: auto;
-    width: 100%;
-    padding: 3px 5px 3px 5px;
+  display: block;
+  margin: auto;
+  width: 100%;
+  padding: 3px 5px 3px 5px;
 }
 
 #clearButton,
 #saveButton,
 #updateButton {
-    padding: 10px 50px; 
-    margin-left: 10px;
-    margin-top: 10px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 10px 50px;
+  margin-left: 10px;
+  margin-top: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 #clearButton {
-    background: #FF6161;
+  background: #ff6161;
 }
 
 #saveButton {
-    background: #4691BB;
+  background: #4691bb;
 }
 
 #updateButton {
-    background: #4691BB;
+  background: #4691bb;
 }
 
 #createNoteHeader {
-    margin-top: 20px; 
-    font-family: 'Mulish', sans-serif; 
-    font-size: 24px; 
-    font-style: italic;
-    /* font-weight: bold;  */
+  margin-top: 20px;
+  font-family: "Mulish", sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  /* font-weight: bold;  */
 }
 
 #footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%; 
-    padding: 10px; 
-    text-align: center; 
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.allNotes {
+  margin-top: 50px;
+}
