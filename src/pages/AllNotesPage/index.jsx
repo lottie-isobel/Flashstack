@@ -26,6 +26,21 @@ export default function AllNotesPage() {
     fetchNotes();
   }, [])
 
+  const getContentText = (content) => {
+    try {
+      const parsedContent = JSON.parse(content);
+      if (Array.isArray(parsedContent)) {
+        const firstChild = parsedContent[0].children[0];
+        if (firstChild && firstChild.text) {
+          return firstChild.text;
+        }
+      }
+    } catch (error) {
+      console.log('Error parsing content:', error);
+    }
+    return ''; // Return an empty string if parsing fails or structure is not as expected
+  };
+
   return (
     <>
     <h1>All Notes</h1>
@@ -33,7 +48,7 @@ export default function AllNotesPage() {
       {"" || 
       notes.map((note) => (
         <div className='note' key={note._id}>
-          <h2>{note.content}</h2>
+          <h2>{getContentText(note.content)}</h2>
           <p>{note.category}</p>
         </div>
       ))}
@@ -41,3 +56,10 @@ export default function AllNotesPage() {
     </>
   )
 }
+
+// {
+//   "id": 1,
+//   "userid": 2,
+//   "content": "[{\"type\":\"paragraph\",\"children\":[{\"text\":\"1231231231231231231231422\"}]}]",
+//   "category": "test"
+// }
