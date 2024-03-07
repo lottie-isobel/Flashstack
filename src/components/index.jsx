@@ -9,3 +9,4 @@ export { default as DeleteCardBtn } from "./DeleteCardBtn";
 export { default as StylingControls } from "./StylingControls";
 export { default as RevisionCard } from "./RevisionCard";
 export { default as NoteModal } from "./NoteModal";
+export { default as AddEquationBtn } from './AddEquationBtn';
