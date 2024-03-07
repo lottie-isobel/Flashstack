@@ -19,11 +19,11 @@ function App() {
               <Route path="/about" element={<Pages.AboutUsPage/>} />
               <Route path="/contact" element={<Pages.ContactUsPage/>} />
               <Route path="/" element={<ProtectedRoute><Pages.Dashboard /></ProtectedRoute>} />
-              <Route path="/flashcards" element={<ProtectedRoute><Pages.AllFlashcardsPage /></ProtectedRoute>} />
+              <Route path="/decks" element={<ProtectedRoute><Pages.AllDecksPage /></ProtectedRoute>} />
               <Route path="/notes" element={<ProtectedRoute><Pages.AllNotesPage /></ProtectedRoute>} />
-              <Route path="/newflashcard" element={<ProtectedRoute><Pages.CreateFlashcardPage /></ProtectedRoute>} />
+              <Route path="/newflashcard/:id" element={<ProtectedRoute><Pages.CreateFlashcardPage /></ProtectedRoute>} />
               <Route path="/newnote" element={<ProtectedRoute><Pages.CreateNotePage /></ProtectedRoute>} />
-              <Route path="/revise" element={<ProtectedRoute><Pages.RevisionPage /></ProtectedRoute>} />
+              <Route path="/revise/:id" element={<ProtectedRoute><Pages.RevisionPage /></ProtectedRoute>} />
               <Route path="*" element={<Pages.NotFoundPage />} />
             </Routes>
           </div>

@@ -37,8 +37,8 @@ export default function Header() {
                 className="d-inline-block align-top logo"
               />
         <nav>
-          {token && <button className="custom-button" onClick={() => navigate("/flashcards")}>
-            Flashcards
+          {token && <button className="custom-button" onClick={() => navigate("/decks")}>
+            Flashstacks
           </button>}
           {token && <button className="custom-button" onClick={() => navigate("/notes")}>
             Notes
