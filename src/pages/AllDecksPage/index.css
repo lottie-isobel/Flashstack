@@ -15,7 +15,7 @@
 .deck {
   width: 290px;
   height: 130px;
-  background-color: #71d4ff;
+  background-color: #4691bb;
   margin-right: 105px;
   margin-bottom: 50px;
   border: none;
@@ -30,6 +30,7 @@
 
 .deck button {
   background-color: #4691bb;
+  border: none;
   width: 50%;
   height: 50px;
   cursor: pointer;
