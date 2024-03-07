@@ -7,6 +7,7 @@ import StylingControls from '../../components/StylingControls';
 import AddEquationBtn from '../../components/AddEquationBtn';
 
 export default function CreateNotePage() {
+  const [title, setTitle] = useState("")
   const [editorNote] = useState(() => withReact(createEditor()));
 
   const initialValueNote = useMemo(
@@ -56,10 +57,17 @@ export default function CreateNotePage() {
   return <Leaf {...props} />
   }, [])
 
+  const handleTitleInput = (e) => {
+    setTitle(e.target.value)
+  }
+
   return (
     <>
         <div id='note'>
-          <h2 style={{ textAlign:'center' }}>Note</h2>
+          <div>
+            <h2 htmlFor="">Note Title:</h2>
+            <input value={title} class="input-field" onChange={handleTitleInput} style={{ textAlign:'center' }}></input>
+          </div>
           <Slate editor={editorNote} initialValue={initialValueNote}
             onChange={value => {
               const isAstChange = editorNote.operations.some(
@@ -83,7 +91,7 @@ export default function CreateNotePage() {
             <div style={{ display: 'flex', gap: '10px', justifyContent:'center'}}>
               <button onClick={clearContentsNote}>Clear</button>
               <AddEquationBtn />
-              <SaveCardBtn type="note"/>
+              <SaveCardBtn type="note" title={title}/>
             </div>
           </Slate>
         </div>

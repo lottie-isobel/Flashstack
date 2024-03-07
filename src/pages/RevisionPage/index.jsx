@@ -40,7 +40,7 @@ export default function RevisionPage() {
     setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cards.length);
     setCardsRevised((prevCardsRevised) => prevCardsRevised + 1)
   };
-
+  console.log(currentCard)
   return (
     <div>
       <h1>Revise</h1>
