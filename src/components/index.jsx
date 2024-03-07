@@ -8,3 +8,4 @@ export { default as UpdateCardBtn } from "./UpdateCardBtn";
 export { default as DeleteCardBtn } from "./DeleteCardBtn";
 export { default as StylingControls } from "./StylingControls";
 export { default as RevisionCard } from "./RevisionCard";
+export { default as NoteModal } from "./NoteModal";

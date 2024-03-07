@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { useAuth } from '../../hooks/useAuth'
+import React, { useEffect, useState } from 'react';
+import { useAuth } from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
-import "./index.css"
+import NoteModal from '../../components/NoteModal';
+import './index.css';
 
 export default function AllNotesPage() {
-  const { userid } = useAuth()
-  const [notes, setNotes] = useState([])
+  const { userid } = useAuth();
+  const [notes, setNotes] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   useEffect(() => {
     const fetchNotes = async () => {
@@ -24,9 +26,9 @@ export default function AllNotesPage() {
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     fetchNotes();
-  }, [])
+  }, []);
 
   const getContentText = (content) => {
     try {
@@ -43,23 +45,52 @@ export default function AllNotesPage() {
     return '';
   };
 
+  const openNoteModal = (content) => {
+    setSelectedNote(content);
+  };
+
+  const closeNoteModal = () => {
+    setSelectedNote(null);
+  };
+
+  const handleNoteClick = (content) => {
+    openNoteModal(content);
+  };
+
+  const handleOutsideClick = (e) => {
+    const modalContent = document.getElementById('note-modal-content');
+    
+    if (modalContent && !modalContent.contains(e.target)) {
+      closeNoteModal();
+    }
+  };
+  
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+      >
         <h1>All Notes</h1>
         <Link to="/newnote" style={{ textDecoration: 'none', color: 'black' }}>
-          <button id="new-note-button" style={{ fontSize: '1.5em' }}>+ New Note</button>
+          <button id="new-note-button" style={{ fontSize: '1.5em' }}>
+            + New Note
+          </button>
         </Link>
       </div>
-      <div>
-        {"" ||
-          notes.map((note) => (
-            <div className='note' key={note._id}>
-              <h2>{getContentText(note.content)}</h2>
-              <p>{note.category}</p>
-            </div>
-          ))}
+      <div onClick={handleOutsideClick}>
+        {notes.map((note) => (
+          <div
+            className="note"
+            key={note._id}
+            onClick={() => handleNoteClick(getContentText(note.content))}
+          >
+            {/* <h2>{getContentText(note.content)}</h2> */}
+            <p>{note.category}</p>
+          </div>
+        ))}
       </div>
+  
+      {selectedNote && <NoteModal content={selectedNote} onClose={closeNoteModal} />}
     </>
-  )
+  );
 }
