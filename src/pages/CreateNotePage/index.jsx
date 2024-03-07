@@ -5,6 +5,7 @@ export default function CreateNotePage() {
   const note = 'note'
   return (
     <>
+      <header id= 'createNoteHeader'>Create Note</header>
       <Card note={note} />
     </>
   )
