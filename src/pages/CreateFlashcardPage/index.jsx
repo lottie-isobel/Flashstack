@@ -123,7 +123,7 @@ export default function CreateFlashcardPage() {
             <div style={{ display: 'flex', gap: '10px', justifyContent:'center'}}>
               <button onClick={clearContentsFront}>Clear</button>
               <AddEquationBtn />
-              <SaveCardBtn />
+              <SaveCardBtn type="flashcard"/>
             </div>
           </Slate>
         </div>
