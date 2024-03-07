@@ -1,11 +1,14 @@
 .allDecks {
   padding-top: 50px;
+  padding-left: 100px;
 }
+
 .deck {
   width: 290px;
   height: 130px;
   background-color: #71d4ff;
-  gap: 50px;
+  margin-right: 105px;
+  margin-bottom: 50px;
   border: none;
   font-size: 16px;
   font-weight: bold;
@@ -13,7 +16,6 @@
   text-align: center;
   border-radius: 10px;
   padding: 10px;
-  cursor: pointer;
 }
 
 .deck button {
