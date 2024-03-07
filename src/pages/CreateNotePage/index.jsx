@@ -2,11 +2,10 @@ import React from 'react'
 import { Card, CardControls } from '../../components'
 
 export default function CreateNotePage() {
+  const note = 'note'
   return (
     <>
-      <div>Create a Note</div>
-      <Card />
-      <CardControls />
+      <Card note={note} />
     </>
   )
 }

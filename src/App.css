@@ -11,60 +11,68 @@
   display: inline-block;
 }
 
+button {
+    padding: 3px 5px 3px 5px;
+    margin-left: 10px;
+    margin-top: 10px;;
+    background: white;
+    color: white; 
+}
+
 /* Styling for card */
 .card {
-    height: 300px;
-    width: 500px;
-    background: white;
+    height: 296.5px;
+    width: 550px;
+    margin: 10px auto;
     background-image: repeating-linear-gradient(
         180deg,
-        white -3px,
-        white 19px,
-        #9198e5 19px,
-        lightblue 20px
+        white -1px,
+        white 20px,
+        #9198e5 21px,
+        lightblue 22px
     );
-  }
+    border: 1px solid black;
+}
 
 /* Styling for text styles */
 
-.btn {
-  padding: 3px 5px 3px 5px;
-  margin-left: 10px;
-  background: white;
-  color: black;
-}
-
-#italicBtn {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-#superBtn {
-  padding-top: 0;
-  padding-bottom: 3px;
-}
-
-#subBtn {
-  padding-top: 3px;
-  padding-bottom: 0;
-}
+.controls button {
+    padding: 3px 5px 3px 5px;
+    margin-left: auto;
+    margin-right: 5px;
+    background: white;
+    color: black;
+  }
 
 .dropdown {
-  display: inline-block;
-  margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    /* margin-right: 10px; */
 }
 
-.dropdown select {
-  appearance: none;
-  padding: 3px 5px 3px 5px;
-  font-size: 14px;
-  text-align: center;
-  border-radius: 7px;
-  background-color: white;
-  color: black;
-  cursor: pointer;
+.dropdownPopup {
+    position: absolute;
+    top: 38.5px;
+    left: 10px;
+    background-color: white;
+    z-index: 1;
 }
 
-.dropdown select option {
-  padding: 3px 5px 3px 5px;
+#sPopup {
+    min-width: 134px;
+}
+
+#cPopup {
+    min-width: 152px;
+}
+
+#hlPopup {
+    min-width: 133px;
+}
+
+.dropdownPopup button {
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding: 3px 5px 3px 5px;
 }

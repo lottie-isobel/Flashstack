@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function DeleteCardBtn() {
+export default function UpdateCardBtn() {
 
-    const handleDelete = async () => {
+    const handleUpdate = async () => {
 
         const tokenStr = localStorage.getItem('token')
 
@@ -50,26 +50,36 @@ export default function DeleteCardBtn() {
             alert(cateData.error);
         }
 
+
+    const updatedNote = {
+        content: localStorage.getItem('content'),
+        category: 'testing'
+    };
+
+    console.log(updatedNote)
+
     const noteOptions = {
-        method: "DELETE",
+        method: "PATCH",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
+        body: JSON.stringify(updatedNote)
     }
 
     const noteResponse = await fetch(`https://flashstack-backend.onrender.com/note/${cateData.id}`, noteOptions);
     const noteData = await noteResponse.json();
 
-    if (noteResponse.status == 204) {
-        alert(`Note ${cateData.id} has been deleted.`)
-        console.log('Data deleted successfully:', noteData);
+    if (noteResponse.status == 200) {
+        e.target.reset();
+        alert(`You're note content has been updated to ${noteData.content} and you're note category has been updated to${noteData.category}!`)
+        console.log('Data updated successfully:', noteData);
     } else {
         alert(noteData.error);
     }
     };
 
   return (
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleUpdate}>Update</button>
   )
 }
