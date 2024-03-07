@@ -7,7 +7,7 @@ import SaveCardBtn from '../SaveCardBtn';
 import UpdateCardBtn from '../UpdateCardBtn';
 import StylingControls from '../StylingControls';
 
-export default function Card( note, frontFlashcard, backFlashcard ) {
+export default function Card( { type, id } ) {
     const [editor] = useState(() => withReact(createEditor()))
     const { textRef } = useEditor();
     console.log(textRef);
@@ -117,7 +117,7 @@ export default function Card( note, frontFlashcard, backFlashcard ) {
             </div>
             <button id='clearButton' onClick={clearContents}>Clear</button>
         </Slate>
-        <SaveCardBtn />
+        <SaveCardBtn type={type} id={id}/>
         <UpdateCardBtn />
     </>
     )
