@@ -21,6 +21,7 @@ button {
 
 /* Styling for card */
 .card {
+
   height: 296.5px;
   width: 550px;
   margin: 10px auto;
@@ -32,6 +33,7 @@ button {
     lightblue 22px
   );
   border: 1px solid black;
+
 }
 
 /* Styling for text styles */
