@@ -48,7 +48,7 @@ const NoteModal = ({ content, onClose }) => {
             <Editable
               readOnly
               renderLeaf={renderLeaf}
-              style={{ top: '3.65px', lineHeight: '1.4385' }}
+              style={{ top: '3.65px', lineHeight: '1.21' }}
             />
           </div>
         </Slate>

@@ -12,7 +12,7 @@ export default function SaveCardBtn({ type }) {
             case "note":
                 const newNote = {
                     userid: userid,
-                    content: localStorage.getItem('content'),
+                    content: localStorage.getItem('contentNote'),
                     category: 'test'
                 };
 
