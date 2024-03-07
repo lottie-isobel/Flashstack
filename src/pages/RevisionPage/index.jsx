@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Card } from "../../components";
+import { useParams } from "react-router-dom";
+import { RevisionCard } from "../../components";
 
 export default function RevisionPage() {
+  const { id } = useParams();
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -13,8 +15,8 @@ export default function RevisionPage() {
       const response = await fetch(
         `https://flashstack-backend.onrender.com/card/deck/${id}`
       );
-      const rawData = await response.json();
-      const data = rawData.rows.map(d => d.deck);
+      const data = await response.json();
+      console.log(data);
       setCards(data);
     } catch (error) {
       console.error("Error fetching flashcards:", error);
@@ -23,9 +25,8 @@ export default function RevisionPage() {
 
   return (
     <div>
-      {cards.map((card, i) => (
-        <Card key={i} data={card} />
-      ))}
+      <h1>{id}</h1>
+      <RevisionCard question={cards[0].question} answer={cards[0].answer} />
     </div>
   );
 }

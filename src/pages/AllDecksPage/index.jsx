@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 const AllDecksPage = () => {
   const { userid } = useAuth();
   const [decks, setDecks] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDecks = async () => {
@@ -29,19 +31,24 @@ const AllDecksPage = () => {
     fetchDecks();
   }, []);
 
-  // if (!decks || decks.length === 0) {
-  //   return <div>Loading...</div>;
-  // }
+
   return (
     <div>
       <h1>All Decks</h1>
       <div>
         {"" ||
           decks.map(deck => (
-            <div className="deck" key={deck.id}>
-              <p> {deck.name}</p>
+            <div className="deck" key={deck.deckid}>
+              <p onClick={() => navigate(`/revise/${deck.deckid}`)}>
+                {" "}
+                {deck.name}
+              </p>
               <div>
-                <button>Add Card</button>
+                <button
+                  onClick={() => navigate(`/newflashcard/${deck.deckid}`)}
+                >
+                  Add Card
+                </button>
               </div>
             </div>
           ))}
