@@ -67,20 +67,27 @@ export default function Dashboard() {
       </div>
       <div className='line-break' />
       <div className='recent-decks'>
-        <p className='jumping-straight-in'>Jumping straight in?</p>
-        <p className='recent-decks'>Recent decks:</p>
-        {recentDecks.map((deck) => (
-          <div className="deck" key={deck.deckid}>
-            <p onClick={() => navigate(`/revise/${deck.deckid}`)}>
-              {deck.name}
-            </p>
-            <div>
-              <button onClick={() => navigate(`/newflashcard/${deck.deckid}`)}>
-                Add Card
-              </button>
-            </div>
-          </div>
-        ))}
+        {recentDecks.length > 0 && (
+          <>
+            <p className='jumping-straight-in'>Jumping straight in?</p>
+            <p className='recent-decks'>Recent Flashstacks:</p>
+            {recentDecks.map((deck) => (
+              <div className="deck" key={deck.deckid}>
+                <p onClick={() => navigate(`/revise/${deck.deckid}`)}>
+                  {deck.name}
+                </p>
+                <div>
+                  <button onClick={() => navigate(`/newflashcard/${deck.deckid}`)}>
+                    Add Card
+                  </button>
+                </div>
+              </div>
+            ))}
+          </>
+        )}
+        {recentDecks.length === 0 && (
+          <p>You've not made any decks yet! Go to the Flashstacks page to make one.</p>
+        )}
       </div>
     </>
   )

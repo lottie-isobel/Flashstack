@@ -34,7 +34,6 @@ const AllDecksPage = () => {
 
   const addDeck = async (e) => {
     try {
-      e.preventDefault()
       const response = await fetch("https://flashstack-backend.onrender.com/deck", {
         method: "POST",
         headers: {
@@ -62,7 +61,7 @@ const AllDecksPage = () => {
       <div className="allDecks">
         <form onSubmit={addDeck} className="new-deck-form">
           <input placeholder="Add a new deck..." value={newDeckName} onChange={handleNewDeckNameChange} />
-          <button type="submit">+ Add deck</button>
+          <button type="submit">+ Add Flashstack</button>
         </form>
         {"" ||
           decks.map(deck => (
