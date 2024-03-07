@@ -1,17 +1,17 @@
 import React from 'react'
 import { Card } from '../../components'
+import { useParams } from 'react-router-dom'
 
 export default function CreateFlashcardPage() {
-  const frontFlashcard = 'flashcard 1'
-  const backFlashcard = 'flashcard 2'
+  const { deckid } = useParams()
 
   return (
     <>
       <div style={{ display: 'inline-block' }}>
-          <Card frontFlashcard={frontFlashcard} />
+          <Card type="frontFlashcard" id={deckid} />
       </div>
       <div style={{ display: 'inline-block' }}>
-          <Card backFlashcard={backFlashcard} />
+          <Card type="backFlashcard" id={deckid}/>
       </div>
     </>
   )
