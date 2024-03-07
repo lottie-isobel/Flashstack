@@ -81,7 +81,7 @@ export default function AllNotesPage() {
         {notes.map((note) => (
           <div
             className="note"
-            key={note._id}
+            key={note.id}
             onClick={() => handleNoteClick(getContentText(note.content))}
           >
             {/* <h2>{getContentText(note.content)}</h2> */}
@@ -91,6 +91,7 @@ export default function AllNotesPage() {
       </div>
   
       {selectedNote && <NoteModal content={selectedNote} onClose={closeNoteModal} />}
+      {console.log(selectedNote)}
     </>
   );
 }
