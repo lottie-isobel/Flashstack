@@ -3,3 +3,7 @@ export { default as Footer } from "./Footer";
 export { default as Card } from "./Card"
 export { default as CardControls } from "./CardControls"
 export { default as ProtectedRoute } from './ProtectedRoute'
+export { default as SaveCardBtn } from './SaveCardBtn'
+export { default as UpdateCardBtn } from './UpdateCardBtn'
+export { default as DeleteCardBtn } from './DeleteCardBtn'
+export { default as StylingControls } from './StylingControls'
