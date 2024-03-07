@@ -38,7 +38,7 @@ export default function AllNotesPage() {
     } catch (error) {
       console.log('Error parsing content:', error);
     }
-    return ''; // Return an empty string if parsing fails or structure is not as expected
+    return ''; 
   };
 
   return (
@@ -56,10 +56,3 @@ export default function AllNotesPage() {
     </>
   )
 }
-
-// {
-//   "id": 1,
-//   "userid": 2,
-//   "content": "[{\"type\":\"paragraph\",\"children\":[{\"text\":\"1231231231231231231231422\"}]}]",
-//   "category": "test"
-// }
