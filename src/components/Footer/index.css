@@ -10,14 +10,9 @@ nav {
   align-items: center;
 }
 
-p {
-  color: #575757;
-  text-decoration: none;
-  font-size: 16px;
-  padding-top: 18px;
-}
-
 .footer-link {
+  font-family: "mulish";
+  font-weight: 500;
   color: #575757;
   text-decoration: none;
   font-size: 16px;
