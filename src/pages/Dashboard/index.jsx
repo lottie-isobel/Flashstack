@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   const [greeting, setGreeting] = useState("")
   const [recentDecks, setRecentDecks] = useState([])
-  const { firstName } = useAuth()
+  const { firstName, userid } = useAuth()
 
   useEffect(() => {
     const d = new Date()
@@ -21,6 +21,27 @@ export default function Dashboard() {
     } else {
       setGreeting("Good evening, ")
     }
+
+    const fetchDecks = async () => {
+      try {
+        const response = await fetch(
+          `https://flashstack-backend.onrender.com/deck/user/${userid}`
+        );
+
+        if (!response.ok) {
+          console.error("Error fetching decks");
+          return;
+        }
+
+        const data = await response.json();
+        console.log(data);
+        setRecentDecks(data.slice(0, 3));
+      } catch (error) {
+        console.error("Error fetching decks", error);
+      }
+    };
+
+    fetchDecks();
   }, [])
 
 
@@ -48,6 +69,18 @@ export default function Dashboard() {
       <div className='recent-decks'>
         <p className='jumping-straight-in'>Jumping straight in?</p>
         <p className='recent-decks'>Recent decks:</p>
+        {recentDecks.map((deck) => (
+          <div className="deck" key={deck.deckid}>
+            <p onClick={() => navigate(`/revise/${deck.deckid}`)}>
+              {deck.name}
+            </p>
+            <div>
+              <button onClick={() => navigate(`/newflashcard/${deck.deckid}`)}>
+                Add Card
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   )
