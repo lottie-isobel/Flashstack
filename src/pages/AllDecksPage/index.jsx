@@ -31,11 +31,9 @@ const AllDecksPage = () => {
     fetchDecks();
   }, []);
 
-
   return (
     <div>
-      <h1>All Decks</h1>
-      <div>
+      <div className="allDecks">
         {"" ||
           decks.map(deck => (
             <div className="deck" key={deck.deckid}>

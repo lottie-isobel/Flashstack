@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '../../hooks/useAuth';
-import { Link } from 'react-router-dom';
-import NoteModal from '../../components/NoteModal';
-import './index.css';
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
+import NoteModal from "../../components/NoteModal";
+import "./index.css";
 
 export default function AllNotesPage() {
   const { userid } = useAuth();
@@ -17,7 +17,7 @@ export default function AllNotesPage() {
         );
 
         if (!response.ok) {
-          throw new Error('Something went wrong!');
+          throw new Error("Something went wrong!");
         }
 
         const data = await response.json();
@@ -30,7 +30,7 @@ export default function AllNotesPage() {
     fetchNotes();
   }, []);
 
-  const getContentText = (content) => {
+  const getContentText = content => {
     try {
       const parsedContent = JSON.parse(content);
       if (Array.isArray(parsedContent)) {
@@ -40,12 +40,12 @@ export default function AllNotesPage() {
         }
       }
     } catch (error) {
-      console.log('Error parsing content:', error);
+      console.log("Error parsing content:", error);
     }
-    return '';
+    return "";
   };
 
-  const openNoteModal = (content) => {
+  const openNoteModal = content => {
     setSelectedNote(content);
   };
 
@@ -53,32 +53,22 @@ export default function AllNotesPage() {
     setSelectedNote(null);
   };
 
-  const handleNoteClick = (content) => {
+  const handleNoteClick = content => {
     openNoteModal(content);
   };
 
-  const handleOutsideClick = (e) => {
-    const modalContent = document.getElementById('note-modal-content');
-    
+  const handleOutsideClick = e => {
+    const modalContent = document.getElementById("note-modal-content");
+
     if (modalContent && !modalContent.contains(e.target)) {
       closeNoteModal();
     }
   };
-  
+
   return (
-    <>
-      <div
-        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-      >
-        <h1>All Notes</h1>
-        <Link to="/newnote" style={{ textDecoration: 'none', color: 'black' }}>
-          <button id="new-note-button" style={{ fontSize: '1.5em' }}>
-            + New Note
-          </button>
-        </Link>
-      </div>
+    <div className="allNotes">
       <div onClick={handleOutsideClick}>
-        {notes.map((note) => (
+        {notes.map(note => (
           <div
             className="note"
             key={note.id}
@@ -89,9 +79,24 @@ export default function AllNotesPage() {
           </div>
         ))}
       </div>
-  
-      {selectedNote && <NoteModal content={selectedNote} onClose={closeNoteModal} />}
+
+      {selectedNote && (
+        <NoteModal content={selectedNote} onClose={closeNoteModal} />
+      )}
       {console.log(selectedNote)}
-    </>
+
+      <div
+        style={{
+          display: "block",
+          alignItems: "center",
+        }}
+      >
+        <Link to="/newnote" style={{ textDecoration: "none", color: "black" }}>
+          <button id="new-note-button" style={{ fontSize: "1.5em" }}>
+            + New Note
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 }
