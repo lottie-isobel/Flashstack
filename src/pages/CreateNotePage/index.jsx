@@ -2,10 +2,10 @@ import React from 'react'
 import { Card } from '../../components'
 
 export default function CreateNotePage() {
+  const note = 'note'
   return (
     <>
-      <div>Create a Note</div>
-      <Card />
+      <Card note={note} />
     </>
   )
 }
