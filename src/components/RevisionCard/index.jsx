@@ -1,14 +1,22 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import './index.css'
 
 export default function RevisionCard({ question, answer }) {
-const [flipped, setFlipped] = useState(false)
+  const [flipped, setFlipped] = useState(false)
+
+  const toggleFlip = () => {
+    setFlipped(prevFlipped => !prevFlipped)
+  }
 
   return (
     <>
-      <div className="revision-card">
-        <p>{question}</p>
+      {flipped ? <h2>Answer:</h2> : <h2>Question:</h2>}
+      <div className="card">
+      <p className="card-content">{flipped ? answer : question}</p>
       </div>
-      <button>Flip card!</button>
+      <div className="buttons">
+        <button onClick={toggleFlip}>Flip card</button>
+      </div>
     </>
   );
 }
