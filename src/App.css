@@ -21,15 +21,15 @@ button {
 
 /* Styling for card */
 .card {
-    height: 500px;
+    height: 493px;
     width: 950px;
     margin: 10px auto;
     background-image: repeating-linear-gradient(
         180deg,
-        white -1px,
-        white 20px,
-        #9198e5 21px,
-        lightblue 22px
+        white 1px,
+        white 28px,
+        #9198e5 29px,
+        lightblue 30px
     );
     border: 1px solid black;
 }
