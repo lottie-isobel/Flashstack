@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import "./index.css";
 
 const AllDecksPage = () => {
   const { userid } = useAuth();
@@ -35,7 +36,15 @@ const AllDecksPage = () => {
     <div>
       <h1>All Decks</h1>
       <div>
-        {"" || decks.map(deck => <button key={deck.id}>{deck.name}</button>)}
+        {"" ||
+          decks.map(deck => (
+            <div className="deck" key={deck.id}>
+              <p> {deck.name}</p>
+              <div>
+                <button>Add Card</button>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );
