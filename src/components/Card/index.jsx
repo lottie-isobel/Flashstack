@@ -115,7 +115,7 @@ export default function Card( note, frontFlashcard, backFlashcard ) {
                 />
                 <ReactLatex>{textRef.current && textRef.current.innerHTML}</ReactLatex>
             </div>
-            <button onClick={clearContents}>Clear</button>
+            <button id='clearButton' onClick={clearContents}>Clear</button>
         </Slate>
         <SaveCardBtn />
         <UpdateCardBtn />

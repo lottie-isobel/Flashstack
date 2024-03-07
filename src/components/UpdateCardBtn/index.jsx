@@ -80,6 +80,6 @@ export default function UpdateCardBtn() {
     };
 
   return (
-        <button onClick={handleUpdate}>Update</button>
+        <button id='updateButton' onClick={handleUpdate}>Update</button>
   )
 }

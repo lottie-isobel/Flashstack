@@ -76,3 +76,44 @@ button {
     width: 100%;
     padding: 3px 5px 3px 5px;
 }
+
+#clearButton,
+#saveButton,
+#updateButton {
+    padding: 10px 50px; 
+    margin-left: 10px;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#clearButton {
+    background: #FF6161;
+}
+
+#saveButton {
+    background: #4691BB;
+}
+
+#updateButton {
+    background: #4691BB;
+}
+
+#createNoteHeader {
+    margin-top: 20px; 
+    font-family: 'Mulish', sans-serif; 
+    font-size: 24px; 
+    font-style: italic;
+    /* font-weight: bold;  */
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    padding: 10px; 
+    text-align: center; 
+  }

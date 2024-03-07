@@ -70,6 +70,6 @@ export default function DeleteCardBtn() {
     };
 
   return (
-        <button onClick={handleDelete}>Delete</button>
+        <button id='deleteButton' onClick={handleDelete}>Delete</button>
   )
 }
