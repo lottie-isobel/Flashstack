@@ -5,6 +5,8 @@ p{
     text-align: left;
     display: flex;
     justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .streak-box{
@@ -14,6 +16,7 @@ p{
     text-align: center;
     border-radius: 8px;
     margin: 10px 60px;
+    padding: 15px;
 }
 
 .recent-decks{
@@ -26,10 +29,34 @@ p{
 .view-flashstacks{
     margin: 35px 50px;
     background-color: #4691bb;
+    width: 400px;
+    height: 75px;
+    font-size: 28px;
 }
 
 .keep-your-streak-going{
     color: white;
     font-weight: bold;
     font-size: 24px;
+}
+
+.streak-day{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+    background-color: grey;
+}
+
+.done{
+    background-color: lightcoral;  
+}
+
+
+.days{
+    display: flex;
+    font-family: 'Mulish';
+    justify-content: center;
+    gap: 10px;
+    font-weight: bold;
 }

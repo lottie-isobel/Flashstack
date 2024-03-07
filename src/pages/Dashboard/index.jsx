@@ -22,24 +22,33 @@ export default function Dashboard() {
       setGreeting("Good evening, ")
     }
   }, [])
-  
+
 
   return (
     <>
-    <div className="dashboard-quick">
-      <div className='left-side-of-quick'>
-        <h1 className='greeting'>{greeting}{firstName}!</h1>
-        <button className='view-flashstacks' onClick={() => navigate("/decks")}>View Flashstacks</button>
+      <div className="dashboard-quick">
+        <div className='left-side-of-quick'>
+          <h1 className='greeting'>{greeting}{firstName}!</h1>
+          <button className='view-flashstacks' onClick={() => navigate("/decks")}>View Flashstacks</button>
+        </div>
+        <div className='streak-box'>
+          <p className='keep-your-streak-going'>Keep your streak going! 🔥</p>
+          <div className='days'>
+            <div className='streak-day done'>M</div>
+            <div className='streak-day done'>T</div>
+            <div className='streak-day'>W</div>
+            <div className='streak-day'>T</div>
+            <div className='streak-day'>F</div>
+            <div className='streak-day'>S</div>
+            <div className='streak-day'>S</div>
+          </div>
+        </div>
       </div>
-      <div className='streak-box'>
-        <p className='keep-your-streak-going'>Keep your streak going! 🔥</p>
+      <div className='line-break' />
+      <div className='recent-decks'>
+        <p className='jumping-straight-in'>Jumping straight in?</p>
+        <p className='recent-decks'>Recent decks:</p>
       </div>
-    </div>
-    <div className='line-break'/>
-    <div className='recent-decks'>
-      <p className='jumping-straight-in'>Jumping straight in?</p>
-      <p className='recent-decks'>Recent decks:</p>
-    </div>
     </>
   )
 }
