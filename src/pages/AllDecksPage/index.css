@@ -3,6 +3,15 @@
   padding-left: 100px;
 }
 
+.new-deck-form{
+  margin-bottom: 10px;
+}
+
+.new-deck-form > input {
+  height: 38px;
+  border-radius: 8px;
+}
+
 .deck {
   width: 290px;
   height: 130px;
@@ -16,6 +25,7 @@
   text-align: center;
   border-radius: 10px;
   padding: 10px;
+  cursor: pointer;
 }
 
 .deck button {

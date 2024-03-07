@@ -60,8 +60,8 @@ const AllDecksPage = () => {
   return (
     <div>
       <div className="allDecks">
-        <form onSubmit={addDeck}>
-          <input value={newDeckName} onChange={handleNewDeckNameChange} />
+        <form onSubmit={addDeck} className="new-deck-form">
+          <input placeholder="Add a new deck..." value={newDeckName} onChange={handleNewDeckNameChange} />
           <button type="submit">+ Add deck</button>
         </form>
         {"" ||
