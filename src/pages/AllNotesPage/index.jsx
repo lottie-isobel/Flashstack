@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
+import { Link } from 'react-router-dom';
+import "./index.css"
 
 export default function AllNotesPage() {
   const { userid } = useAuth()
   const [notes, setNotes] = useState([])
-  
+
   useEffect(() => {
     const fetchNotes = async () => {
       try {
@@ -38,21 +40,26 @@ export default function AllNotesPage() {
     } catch (error) {
       console.log('Error parsing content:', error);
     }
-    return ''; 
+    return '';
   };
 
   return (
     <>
-    <h1>All Notes</h1>
-    <div>
-      {"" || 
-      notes.map((note) => (
-        <div className='note' key={note._id}>
-          <h2>{getContentText(note.content)}</h2>
-          <p>{note.category}</p>
-        </div>
-      ))}
-    </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1>All Notes</h1>
+        <Link to="/newnote" style={{ textDecoration: 'none', color: 'black' }}>
+          <button id="new-note-button" style={{ fontSize: '1.5em' }}>+ New Note</button>
+        </Link>
+      </div>
+      <div>
+        {"" ||
+          notes.map((note) => (
+            <div className='note' key={note._id}>
+              <h2>{getContentText(note.content)}</h2>
+              <p>{note.category}</p>
+            </div>
+          ))}
+      </div>
     </>
   )
 }
