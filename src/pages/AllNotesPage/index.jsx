@@ -7,7 +7,8 @@ import "./index.css";
 export default function AllNotesPage() {
   const { userid } = useAuth();
   const [notes, setNotes] = useState([]);
-  const [selectedNote, setSelectedNote] = useState(null);
+  const [isNoteModalOpen, setIsNoteModalOpen] = useState(false);
+  const [child, setChild] = useState([])
 
   useEffect(() => {
     const fetchNotes = async () => {
@@ -30,59 +31,45 @@ export default function AllNotesPage() {
     fetchNotes();
   }, []);
 
-  const getContentText = content => {
-    try {
-      const parsedContent = JSON.parse(content);
-      if (Array.isArray(parsedContent)) {
-        const firstChild = parsedContent[0].children[0];
-        if (firstChild && firstChild.text) {
-          return firstChild.text;
-        }
-      }
-    } catch (error) {
-      console.log("Error parsing content:", error);
-    }
-    return "";
+  notes.map(({ id, content }) => ({ id, content }));
+
+  const getContentById = (id) => {
+    const note = notes.find(note => note.id === id);
+    return note ? note.content : null;
   };
 
-  const openNoteModal = content => {
-    setSelectedNote(content);
+  const openNoteModal = (id) => {
+    setIsNoteModalOpen(true);
+    const content = getContentById(id);
+    const parsedContent = JSON.parse(content);
+    const children = parsedContent[0].children;
+    console.log(children)
+
+    setChild(children)
   };
+
+  console.log(child)
 
   const closeNoteModal = () => {
-    setSelectedNote(null);
-  };
-
-  const handleNoteClick = content => {
-    openNoteModal(content);
-  };
-
-  const handleOutsideClick = e => {
-    const modalContent = document.getElementById("note-modal-content");
-
-    if (modalContent && !modalContent.contains(e.target)) {
-      closeNoteModal();
-    }
+    setIsNoteModalOpen(false);
   };
 
   return (
-    <div className="allNotes">
-      <div onClick={handleOutsideClick}>
+      <div className="allNotes">
         {notes.map(note => (
-          <div
-            className="note"
-            key={note.id}
-            onClick={() => handleNoteClick(getContentText(note.content))}
-          >
-            <p>{note.category}</p>
+
+          <div className="note" key={note.id} onClick={() => openNoteModal(note.id)}>
+            <div >
+              <p>{note.category}</p>
+            </div>
+
           </div>
         ))}
-      </div>
 
-      {selectedNote && (
-        <NoteModal content={selectedNote} onClose={closeNoteModal} />
-      )}
-      {console.log(selectedNote)}
+
+    {isNoteModalOpen && (
+      <NoteModal child={child} onClose={closeNoteModal} />
+    )}
 
       <div
         style={{
