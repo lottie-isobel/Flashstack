@@ -2,26 +2,21 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { createEditor } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
 
-const NoteModal = ({ content, onClose }) => {
+const NoteModal = ({ child, onClose }) => {
   const [editorNote] = useState(() => withReact(createEditor()));
   
-  const initialValueNote = useMemo(
-    () =>
-      JSON.parse(localStorage.getItem('contentNote')) || [
-        {
-          type: 'paragraph',
-          children: content,
-        },
-      ],
-    []
-  )
+  const initialValueNote = [
+    {
+      type: 'paragraph',
+      children: child,
+    },
+  ];
 
   const Leaf = props => {
     return (
         <span
         {...props.attributes}
         style={{
-            fontSize: props.leaf.xsmall ? '8px' : props.leaf.small ? '12px' : props.leaf.large ? '20px' : props.leaf.xlarge ? '24px' : '24px',
             color: props.leaf.black ? 'black' : props.leaf.blue ? 'blue' : props.leaf.red ? 'red' : props.leaf.green ? 'green' : 'black',
             background: props.leaf.yellowHL ? 'yellow' : props.leaf.cyanHL ? 'cyan' : props.leaf.greyHL ? 'grey' : props.leaf.magentaHL ? 'magenta' : 'none',
             fontWeight: props.leaf.bold ? 'bold' : 'normal',

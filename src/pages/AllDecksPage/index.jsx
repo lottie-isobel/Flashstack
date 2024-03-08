@@ -51,6 +51,7 @@ const AllDecksPage = () => {
     } catch (error) {
       console.error("Error posting deck.")
     }
+    window.location.reload();
   }
 
   const handleNewDeckNameChange = async (e) => {

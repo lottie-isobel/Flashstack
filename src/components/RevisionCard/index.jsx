@@ -7,6 +7,9 @@ export default function RevisionCard({ question, answer }) {
   const [editorFront] = useState(() => withReact(createEditor()));
   const [editorBack] = useState(() => withReact(createEditor()));
   const [isFrontDisplayed, setIsFrontDisplayed] = useState(true);
+  // const parsedQuestion = JSON.parse("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"F\",\"cyanHL\":true},{\"text\":\"ro\"},{\"text\":\"nt\",\"bold\":true}]}]");
+  const parsedQuestion = JSON.parse(question);
+  const parsedAanswer = JSON.parse(answer)
 
   const toggleFlip = () => {
     setIsFrontDisplayed(!isFrontDisplayed);
@@ -20,34 +23,11 @@ export default function RevisionCard({ question, answer }) {
     display: isFrontDisplayed ? 'none' : 'block'
   };
 
-  const initialValueFront = useMemo(
-      () =>
-        JSON.parse(localStorage.getItem('contentFront')) || [
-          {
-            type: 'paragraph',
-            children: question,
-          },
-        ],
-      []
-  )
-
-  const initialValueBack = useMemo(
-    () =>
-      JSON.parse(localStorage.getItem('contentBack')) || [
-        {
-          type: 'paragraph',
-          children: answer,
-        },
-      ],
-    []
-  )
-
   const Leaf = props => {
     return (
         <span
         {...props.attributes}
         style={{
-            fontSize: props.leaf.xsmall ? '8px' : props.leaf.small ? '12px' : props.leaf.large ? '20px' : props.leaf.xlarge ? '24px' : '24px',
             color: props.leaf.black ? 'black' : props.leaf.blue ? 'blue' : props.leaf.red ? 'red' : props.leaf.green ? 'green' : 'black',
             background: props.leaf.yellowHL ? 'yellow' : props.leaf.cyanHL ? 'cyan' : props.leaf.greyHL ? 'grey' : props.leaf.magentaHL ? 'magenta' : 'none',
             fontWeight: props.leaf.bold ? 'bold' : 'normal',
@@ -69,7 +49,7 @@ export default function RevisionCard({ question, answer }) {
         <>
         <div id='front' style={frontStyle}>
           <h2 style={{ textAlign:'center' }}>Question</h2>
-          <Slate editor={editorFront} initialValue={initialValueFront}>
+          <Slate editor={editorFront} initialValue={parsedQuestion}>
             <div className="card">
               <Editable
                 readOnly
@@ -81,7 +61,7 @@ export default function RevisionCard({ question, answer }) {
         </div>
         <div id='back' style={backStyle}>
           <h2 style={{ textAlign:'center' }}>Answer</h2>
-          <Slate editor={editorBack} initialValue={initialValueBack}>
+          <Slate editor={editorBack} initialValue={parsedAanswer}>
             <div className="card">
               <Editable
                 readOnly

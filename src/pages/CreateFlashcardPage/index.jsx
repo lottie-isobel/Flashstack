@@ -2,7 +2,6 @@ import React, { useState, useCallback, useMemo } from 'react';
 import { useParams } from 'react-router-dom'
 import { createEditor } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
-import ReactLatex from 'react-latex';
 import SaveCardBtn from '../../components/SaveCardBtn';
 import StylingControls from '../../components/StylingControls';
 import AddEquationBtn from '../../components/AddEquationBtn';
@@ -56,6 +55,7 @@ export default function CreateFlashcardPage() {
       ];
 
       localStorage.setItem('contentFront', JSON.stringify(newValue));
+      window.location.reload();
 
       alert('The front of the flashcard has been cleared.')       
   };
@@ -69,6 +69,7 @@ export default function CreateFlashcardPage() {
     ];
 
     localStorage.setItem('contentBack', JSON.stringify(newValue));
+    window.location.reload();
 
     alert('The back of the flashcard has been cleared.')       
   };
@@ -78,7 +79,6 @@ export default function CreateFlashcardPage() {
       <span
       {...props.attributes}
       style={{
-          fontSize: props.leaf.xsmall ? '8px' : props.leaf.small ? '12px' : props.leaf.large ? '20px' : props.leaf.xlarge ? '24px' : '24px',
           color: props.leaf.black ? 'black' : props.leaf.blue ? 'blue' : props.leaf.red ? 'red' : props.leaf.green ? 'green' : 'black',
           background: props.leaf.yellowHL ? 'yellow' : props.leaf.cyanHL ? 'cyan' : props.leaf.greyHL ? 'grey' : props.leaf.magentaHL ? 'magenta' : 'none',
           fontWeight: props.leaf.bold ? 'bold' : 'normal',
@@ -122,7 +122,6 @@ export default function CreateFlashcardPage() {
             </div>
             <div style={{ display: 'flex', gap: '10px', justifyContent:'center'}}>
               <button onClick={clearContentsFront}>Clear</button>
-              <AddEquationBtn />
               <SaveCardBtn type="flashcard"/>
             </div>
           </Slate>
@@ -151,7 +150,6 @@ export default function CreateFlashcardPage() {
             </div>
             <div style={{ display: 'flex', gap: '10px', justifyContent:'center'}}>
               <button onClick={clearContentsBack}>Clear</button>
-              <AddEquationBtn />
               <SaveCardBtn type="flashcard"/>
             </div>
           </Slate>

@@ -4,13 +4,8 @@ import { useSlate } from 'slate-react';
 
 export default function StylingControls () {
     const editor = useSlate()
-    const [isSPopupOpen, setIsSPopupOpen] = useState(false);
     const [isCPopupOpen, setIsCPopupOpen] = useState(false);
     const [isHLPopupOpen, setIsHLPopupOpen] = useState(false);
-
-    const toggleSPopup = () => {
-        setIsSPopupOpen(!isSPopupOpen);
-    };
 
     const toggleCPopup = () => {
         setIsCPopupOpen(!isCPopupOpen);
@@ -21,26 +16,6 @@ export default function StylingControls () {
     };
 
     const CustomEditor = {
-        isXSmallMarkActive(editor) {
-        const marks = Editor.marks(editor)
-        return marks ? marks.xsmall === true : false
-        },
-
-        isSmallMarkActive(editor) {
-        const marks = Editor.marks(editor)
-        return marks ? marks.small === true : false
-        },
-
-        isLargeMarkActive(editor) {
-        const marks = Editor.marks(editor)
-        return marks ? marks.large === true : false
-        },
-
-        isXLargeMarkActive(editor) {
-        const marks = Editor.marks(editor)
-        return marks ? marks.xlarge === true : false
-        },
-
         isBlackMarkActive(editor) {
         const marks = Editor.marks(editor)
         return marks ? marks.black === true : false
@@ -468,25 +443,6 @@ export default function StylingControls () {
                 )}
             </div>
             <div className="dropdown">
-                <button onClick={toggleSPopup}>Select Font Size</button>
-                {isSPopupOpen && (
-                    <div className="dropdownPopup" id='sPopup'>
-                        <button onMouseDown={event => {
-                            event.preventDefault()
-                            CustomEditor.toggleXSmallMark(editor)}}>Extra Small</button>
-                        <button onMouseDown={event => {
-                            event.preventDefault()
-                            CustomEditor.toggleSmallMark(editor)}}>Small</button>
-                        <button onMouseDown={event => {
-                            event.preventDefault()
-                            CustomEditor.toggleLargeMark(editor)}}>Large</button>
-                        <button onMouseDown={event => {
-                            event.preventDefault()
-                            CustomEditor.toggleXLargeMark(editor)}}>Extra Large</button>
-                    </div>
-                )}
-            </div>
-            <div className="dropdown">
                 <button onClick={toggleHLPopup}>Select Highlight</button>
                 {isHLPopupOpen && (
                     <div className="dropdownPopup" id='hlPopup'>
@@ -516,7 +472,7 @@ export default function StylingControls () {
             <button
                 onMouseDown={event => {
                 event.preventDefault()
-                CustomEditor.toggleBoldMark(editor)
+                CustomEditor.toggleItalicMark(editor)
                 }}
             >
                 <i>I</i>

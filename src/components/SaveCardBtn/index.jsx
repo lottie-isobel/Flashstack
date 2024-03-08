@@ -12,8 +12,8 @@ export default function SaveCardBtn({ type }) {
             case "note":
                 const newNote = {
                     userid: userid,
-                    content: localStorage.getItem('content'),
-                    category: 'test'
+                    content: localStorage.getItem('contentNote'),
+                    category: 'testing'
                 };
 
                 const noteOptions = {
