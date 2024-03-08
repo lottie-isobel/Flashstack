@@ -66,7 +66,7 @@ export default function CreateNotePage() {
         <div id='note'>
           <div>
             <h2 htmlFor="">Note Title:</h2>
-            <input value={title} class="input-field" onChange={handleTitleInput} style={{ textAlign:'center' }}></input>
+            <input value={title} className="input-field" onChange={handleTitleInput} style={{ textAlign:'center' }}></input>
           </div>
           <Slate editor={editorNote} initialValue={initialValueNote}
             onChange={value => {

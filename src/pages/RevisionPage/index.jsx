@@ -19,8 +19,8 @@ export default function RevisionPage() {
       const response = await fetch(
         `https://flashstack-backend.onrender.com/card/deck/${id}`
       );
+      console.log(response)
       const data = await response.json();
-      console.log(data)
       const shuffledCards = data
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
@@ -38,12 +38,6 @@ export default function RevisionPage() {
     setCardsRevised((prevCardsRevised) => prevCardsRevised + 1)
   };
 
-  let question = currentCard.question 
-  let answer = currentCard.answer
-
-  console.log(question)
-  console.log(answer)
-
   console.log(currentCard)
   return (
     <div>
@@ -51,8 +45,8 @@ export default function RevisionPage() {
       <h2 className="cards-revised">Cards revised: {cardsRevised}</h2>
       {currentCard ? (
         <RevisionCard
-          question={question}
-          answer={answer}
+          question={currentCard.question}
+          answer={currentCard.answer}
         />
       ) : (
         <p>No flashcards available for this deck.</p>
