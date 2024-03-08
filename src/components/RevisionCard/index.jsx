@@ -7,9 +7,9 @@ export default function RevisionCard({ question, answer }) {
   const [editorFront] = useState(() => withReact(createEditor()));
   const [editorBack] = useState(() => withReact(createEditor()));
   const [isFrontDisplayed, setIsFrontDisplayed] = useState(true);
-  // const parsedQuestion = JSON.parse("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"F\",\"cyanHL\":true},{\"text\":\"ro\"},{\"text\":\"nt\",\"bold\":true}]}]");
-  const parsedQuestion = JSON.parse(question);
-  const parsedAanswer = JSON.parse(answer)
+
+  const parsedQuestion = isValidJSON(question) ? JSON.parse(question) : null;
+  const parsedAnswer = isValidJSON(answer) ? JSON.parse(answer) : null;
 
   const toggleFlip = () => {
     setIsFrontDisplayed(!isFrontDisplayed);
@@ -39,16 +39,17 @@ export default function RevisionCard({ question, answer }) {
         {props.children}
         </span>
     )
-    }
+  }
   
-    const renderLeaf = useCallback(props => {
+  const renderLeaf = useCallback(props => {
     return <Leaf {...props} />
-    }, [])
+  }, [])
 
   return (
-        <>
-        <div id='front' style={frontStyle}>
-          <h2 style={{ textAlign:'center' }}>Question</h2>
+    <>
+      <div id='front' style={frontStyle}>
+        <h2 style={{ textAlign:'center' }}>Question</h2>
+        {parsedQuestion && (
           <Slate editor={editorFront} initialValue={parsedQuestion}>
             <div className="card">
               <Editable
@@ -58,21 +59,33 @@ export default function RevisionCard({ question, answer }) {
               />
             </div>
           </Slate>
-        </div>
-        <div id='back' style={backStyle}>
-          <h2 style={{ textAlign:'center' }}>Answer</h2>
-          <Slate editor={editorBack} initialValue={parsedAanswer}>
+        )}
+      </div>
+      <div id='back' style={backStyle}>
+        <h2 style={{ textAlign:'center' }}>Answer</h2>
+        {parsedAnswer && (
+          <Slate editor={editorBack} initialValue={parsedAnswer}>
             <div className="card">
               <Editable
                 readOnly
                 renderLeaf={renderLeaf}
                 placeholder='Type here'
                 style={{ top: '3.65px', lineHeight: '1.4385' }}
-                  />
+              />
             </div>
           </Slate>
-        </div>
+        )}
+      </div>
       <button className='buttons' onClick={toggleFlip}>Flip card</button>
     </>
   );
+}
+
+function isValidJSON(str) {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch {
+    return false;
+  }
 }
