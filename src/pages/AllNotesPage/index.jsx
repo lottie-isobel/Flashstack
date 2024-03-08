@@ -9,6 +9,7 @@ export default function AllNotesPage() {
   const [notes, setNotes] = useState([]);
   const [isNoteModalOpen, setIsNoteModalOpen] = useState(false);
   const [child, setChild] = useState([])
+  const [noteId, setNoteId] = useState(null)
 
   useEffect(() => {
     const fetchNotes = async () => {
@@ -35,6 +36,7 @@ export default function AllNotesPage() {
 
   const getContentById = (id) => {
     const note = notes.find(note => note.id === id);
+    setNoteId(id)
     return note ? note.content : null;
   };
 
@@ -61,12 +63,13 @@ export default function AllNotesPage() {
             <div >
               <p>{note.category}</p>
             </div>
+
           </div>
         ))}
 
 
     {isNoteModalOpen && (
-      <NoteModal child={child} onClose={closeNoteModal} />
+      <NoteModal id={noteId}  child={child} onClose={closeNoteModal} />
     )}
 
       <div

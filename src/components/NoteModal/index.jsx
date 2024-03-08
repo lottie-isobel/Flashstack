@@ -1,8 +1,9 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { createEditor } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
+import { DeleteCardBtn } from "../"
 
-const NoteModal = ({ child, onClose }) => {
+const NoteModal = ({id, child, onClose }) => {
   const [editorNote] = useState(() => withReact(createEditor()));
   
   const initialValueNote = [
@@ -47,6 +48,7 @@ const NoteModal = ({ child, onClose }) => {
             />
           </div>
         </Slate>
+        <DeleteCardBtn id = {id} />
         </div>
       </div>
   );
