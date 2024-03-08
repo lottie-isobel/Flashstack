@@ -90,7 +90,7 @@ export default function CreateNotePage() {
             </div>
             <div style={{ display: 'flex', gap: '10px', justifyContent:'center'}}>
               <button onClick={clearContentsNote}>Clear</button>
-              <SaveCardBtn type="note"/>
+              <SaveCardBtn type="note" title={title}/>
             </div>
           </Slate>
         </div>
