@@ -14,18 +14,13 @@ export default function RevisionPage() {
     fetchAndShuffleFlashstack();
   }, []);
 
-  useEffect(() => {
-    if (cards.length > 0) {
-      setCurrentCard(cards[currentCardIndex]);
-    }
-  }, [cards, currentCardIndex]);
-
   const fetchAndShuffleFlashstack = async () => {
     try {
       const response = await fetch(
         `https://flashstack-backend.onrender.com/card/deck/${id}`
       );
       const data = await response.json();
+      console.log(data)
       const shuffledCards = data
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
@@ -36,10 +31,19 @@ export default function RevisionPage() {
     }
   };
 
+  console.log(cards)
+
   const nextCard = () => {
     setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cards.length);
     setCardsRevised((prevCardsRevised) => prevCardsRevised + 1)
   };
+
+  let question = currentCard.question 
+  let answer = currentCard.answer
+
+  console.log(question)
+  console.log(answer)
+
   console.log(currentCard)
   return (
     <div>
@@ -47,8 +51,8 @@ export default function RevisionPage() {
       <h2 className="cards-revised">Cards revised: {cardsRevised}</h2>
       {currentCard ? (
         <RevisionCard
-          question={currentCard.question}
-          answer={currentCard.answer}
+          question={question}
+          answer={answer}
         />
       ) : (
         <p>No flashcards available for this deck.</p>

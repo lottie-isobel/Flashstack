@@ -19,6 +19,21 @@ button {
   color: white;
 }
 
+[contenteditable] {
+    outline: 0px solid transparent;
+}
+
+/* Equation display */
+
+#eqn {
+  height: 200px;
+  width: 200px;
+  margin: 10px auto;
+  background: lightgrey;
+  border: 1px solid black;
+  padding: 10px;
+}
+
 /* Styling for card */
 .card {
     height: 493px;
@@ -110,7 +125,7 @@ button {
 }
 
 #footer {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;
