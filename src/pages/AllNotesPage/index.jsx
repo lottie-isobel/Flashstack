@@ -61,6 +61,7 @@ export default function AllNotesPage() {
             <div >
               <p>{note.category}</p>
             </div>
+
           </div>
         ))}
 
