@@ -19,23 +19,22 @@ export default function RevisionPage() {
       const response = await fetch(
         `https://flashstack-backend.onrender.com/card/deck/${id}`
       );
-      console.log(response)
       const data = await response.json();
       const shuffledCards = data
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
       setCards(shuffledCards);
+      setCurrentCard(shuffledCards[currentCardIndex]);
     } catch (error) {
       console.error("Error fetching flashcards:", error);
     }
   };
 
-  console.log(cards)
-
   const nextCard = () => {
     setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cards.length);
-    setCardsRevised((prevCardsRevised) => prevCardsRevised + 1)
+    setCardsRevised((prevCardsRevised) => prevCardsRevised + 1);
+    setCurrentCard(cards[(currentCardIndex + 1) % cards.length]);
   };
 
   console.log(currentCard)
