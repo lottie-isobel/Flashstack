@@ -74,7 +74,6 @@ export default function AllNotesPage() {
             key={note.id}
             onClick={() => handleNoteClick(getContentText(note.content))}
           >
-            {/* <h2>{getContentText(note.content)}</h2> */}
             <p>{note.category}</p>
           </div>
         ))}
