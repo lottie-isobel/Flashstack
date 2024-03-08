@@ -44,6 +44,7 @@ export default function RevisionPage() {
   console.log(question)
   console.log(answer)
 
+  console.log(currentCard)
   return (
     <div>
       <h1>Revise</h1>

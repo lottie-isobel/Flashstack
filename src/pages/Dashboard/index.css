@@ -7,11 +7,12 @@ p{
     justify-content: space-between;
     padding-left: 40px;
     padding-right: 40px;
+    margin: 50px 25px;
 }
 
 .streak-box{
     background-color: #4691bb;
-    width: 350px;
+    width: 500px;
     height: 200px;
     text-align: center;
     border-radius: 8px;
@@ -27,7 +28,8 @@ p{
 }
 
 .view-flashstacks{
-    margin: 35px 50px;
+    margin-top: 70px;
+    margin-left: 35px;
     background-color: #4691bb;
     width: 400px;
     height: 75px;
@@ -41,11 +43,14 @@ p{
 }
 
 .streak-day{
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 20px;
     color: white;
     background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .done{

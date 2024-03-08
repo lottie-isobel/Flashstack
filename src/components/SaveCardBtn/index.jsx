@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useParams } from 'react-router-dom'
 
-export default function SaveCardBtn({ type }) {
+export default function SaveCardBtn({ type, title }) {
 
     const { userid } = useAuth()
     const { id } = useParams()
@@ -13,7 +13,7 @@ export default function SaveCardBtn({ type }) {
                 const newNote = {
                     userid: userid,
                     content: localStorage.getItem('contentNote'),
-                    category: 'testing'
+                    category: title
                 };
 
                 const noteOptions = {
@@ -27,7 +27,7 @@ export default function SaveCardBtn({ type }) {
                 const noteResponse = await fetch('https://flashstack-backend.onrender.com/note', noteOptions);
                 const noteData = await noteResponse.json();
                 if (noteResponse.status == 201) {
-                    alert(`Your note has been saved to ${noteData.category}!`)
+                    alert(`Your note has been created.`)
                     console.log('Data saved successfully:', noteData);
                 } else {
                     alert(noteData.error);

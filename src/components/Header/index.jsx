@@ -46,9 +46,6 @@ export default function Header() {
           {token && <button className="custom-button" onClick={handleLogout}>
             Sign Out
           </button>}
-          {!token && <button className="custom-button" onClick={() => navigate("/login")}>
-            Sign In
-          </button>}
         </nav>
       </header>
       <div className="line-break"></div>

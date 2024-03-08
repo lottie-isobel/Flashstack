@@ -117,7 +117,7 @@ export default function CreateFlashcardPage() {
                   editor={editorFront}
                   renderLeaf={renderLeaf}
                   placeholder='Type here'
-                  style={{ top: '3.65px', lineHeight: '1.4385' }}
+                  style={{ top: '3.65px', lineHeight: '1.21' }}
               />
             </div>
             <div style={{ display: 'flex', gap: '10px', justifyContent:'center'}}>
@@ -145,7 +145,7 @@ export default function CreateFlashcardPage() {
                   editor={editorBack}
                   renderLeaf={renderLeaf}
                   placeholder='Type here'
-                  style={{ top: '3.65px', lineHeight: '1.4385' }}
+                  style={{ top: '3.65px', lineHeight: '1.21' }}
                   />
             </div>
             <div style={{ display: 'flex', gap: '10px', justifyContent:'center'}}>
