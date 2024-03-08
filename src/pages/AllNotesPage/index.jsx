@@ -50,8 +50,6 @@ export default function AllNotesPage() {
     setChild(children)
   };
 
-  console.log(child)
-
   const closeNoteModal = () => {
     setIsNoteModalOpen(false);
   };
