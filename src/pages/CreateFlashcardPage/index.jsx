@@ -79,6 +79,7 @@ export default function CreateFlashcardPage() {
       <span
       {...props.attributes}
       style={{
+          fontSize: '24px',
           color: props.leaf.black ? 'black' : props.leaf.blue ? 'blue' : props.leaf.red ? 'red' : props.leaf.green ? 'green' : 'black',
           background: props.leaf.yellowHL ? 'yellow' : props.leaf.cyanHL ? 'cyan' : props.leaf.greyHL ? 'grey' : props.leaf.magentaHL ? 'magenta' : 'none',
           fontWeight: props.leaf.bold ? 'bold' : 'normal',

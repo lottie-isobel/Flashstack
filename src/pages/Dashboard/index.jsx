@@ -53,7 +53,7 @@ export default function Dashboard() {
           <button className='view-flashstacks' onClick={() => navigate("/decks")}>View Flashstacks</button>
         </div>
         <div className='streak-box'>
-          <p className='keep-your-streak-going'>Keep your streak going! 🔥</p>
+          <p className='keep-your-streak-going'>Get a streak going! 🔥</p>
           <div className='days'>
             <div className='streak-day done'>M</div>
             <div className='streak-day done'>T</div>

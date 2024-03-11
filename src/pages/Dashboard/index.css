@@ -53,10 +53,6 @@ p{
     align-items: center;
 }
 
-.done{
-    background-color: lightcoral;  
-}
-
 
 .days{
     display: flex;

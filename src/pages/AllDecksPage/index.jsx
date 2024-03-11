@@ -33,6 +33,7 @@ const AllDecksPage = () => {
   }, []);
 
   const addDeck = async (e) => {
+    e.preventDefault()
     try {
       const response = await fetch("https://flashstack-backend.onrender.com/deck", {
         method: "POST",
@@ -50,7 +51,7 @@ const AllDecksPage = () => {
     } catch (error) {
       console.error("Error posting deck.")
     }
-    window.location.reload();
+    window.location.reload()
   }
 
   const handleNewDeckNameChange = async (e) => {
